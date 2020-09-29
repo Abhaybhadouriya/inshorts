@@ -14,7 +14,7 @@ def getdata(value,lang):
 		for i in range(0,len(x)):
 			dic={}
 			dic["title"]=x[i].find('span', itemprop="headline").text
-			dic["decription"]=x[i].find('div',itemprop="articleBody").text.encode('raw-unicode-escape').decode('utf-8')
+			dic["decription"]=x[i].find('div',itemprop="articleBody").text
 			dic["images"]=x[i].find('div', class_="news-card-image")['style'].split("url(")[1].split(")")[0].replace("'",'')
 			dic["author"]=x[i].find('span',class_='author').text
 			dic["time"]=x[i].find('div', class_="news-card-author-time news-card-author-time-in-content").text.splitlines(2)[2].replace("      ","").rstrip()
