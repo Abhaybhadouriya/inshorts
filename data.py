@@ -3,10 +3,8 @@ from bs4 import BeautifulSoup as bs
 
 def getdata(value,lang):
 	try:
-		if(value=='all'):
-			r=requests.get("https://inshorts.com/en/read").text
-		else:
-			r=requests.get("https://inshorts.com/"+lang+"/read/"+value).text
+		
+		r=requests.get("https://inshorts.com/"+lang+"/read/"+value).text
 		soup=bs(r,'lxml')
 		x=soup.find_all('div',class_="news-card z-depth-1")
 		val={}
