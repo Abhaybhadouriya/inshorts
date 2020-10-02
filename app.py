@@ -1,9 +1,11 @@
 from flask import Flask,jsonify
 import requests
 from data import getdata
+from flask_cors import CORS,cross_origin
 
 
 app = Flask(__name__)
+CORS(app)
 app.url_map.strict_slashes = False
 
 @app.route("/")
